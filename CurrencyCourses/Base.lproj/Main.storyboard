@@ -67,7 +67,7 @@
                     <navigationItem key="navigationItem" id="Ztv-X6-LFJ">
                         <barButtonItem key="leftBarButtonItem" title="Назад" style="plain" id="Er7-fw-ek2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1kN-dg-XO0">
-                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
+                                <rect key="frame" x="20" y="13" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
@@ -124,6 +124,7 @@
                                 <segue destination="vwj-pF-UzG" kind="presentation" id="KL7-CF-6S7"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Wtv-iU-HAV"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2o-eL-kWx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -32,7 +32,7 @@ class Model: NSObject, XMLParserDelegate {
     static let shared = Model()
     
     var currencies: [Currency] = []
-    var currentDate: Date = Date()
+    var currentDate: String = ""
     
     var pathForXML: String {
 
@@ -71,7 +71,9 @@ class Model: NSObject, XMLParserDelegate {
                 
                 do {
                     try date?.write(to: urlForSave)
+                    print("Файл загружен")
                     print(path)
+                    self.parseXML()
                 } catch {
                     print("Error when save data:\(error.localizedDescription)")
                 }
@@ -92,7 +94,9 @@ class Model: NSObject, XMLParserDelegate {
         parser?.delegate = self
         parser?.parse()
         
-        print(currencies)
+        print("Данные обновлены")
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dataRefreshed"), object: self)
     }
     
     var currentCurrency: Currency?
@@ -101,9 +105,7 @@ class Model: NSObject, XMLParserDelegate {
         if elementName == "ValCurs" {
             
             if let currentDateString = attributeDict["Date"] {
-            let df = DateFormatter()
-            df.dateFormat = "dd.MM.yyyy"
-            currentDate = df.date(from: currentDateString)!
+            currentDate = currentDateString
             }
         }
     

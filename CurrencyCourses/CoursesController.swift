@@ -12,10 +12,14 @@ class CoursesController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let df = DateFormatter()
-        df.dateFormat = "dd.MM.yyyy"
+        NotificationCenter.default.addObserver(forName:NSNotification.Name(rawValue: "dataRefreshed"), object: nil, queue: nil) {
+            (notification) in
+            self.tableView.reloadData()
+            self.navigationItem.title = Model.shared.currentDate 
+            print("notificationCatch")
+        }
         
-        navigationItem.title = df.string(from: Model.shared.currentDate)
+        navigationItem.title = Model.shared.currentDate
         
     }
 
